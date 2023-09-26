@@ -1,18 +1,27 @@
 use employees;
 
 INSERT INTO department
-(name)
+(id, name)
 VALUES
-('Marketing');
+(1, 'Marketing Manager'),
+(2, 'Marketing Representative')
+(3, 'Human Resources'),
+(4, 'Data Analyst Manager'),
+(5, 'Data Analyst');
 
 INSERT INTO role 
-(title, salary, department_id)
+(id, title, salary, department_id)
 VALUES
-('Lead Social Media Marketer'),
-('Junior Social Media Marketer');
+(1, 'Lead Social Media Marketer', 80000, 1),
+(2, 'Junior Social Media Marketer', 60000, 2),
+(3, 'Human Resource Manager', 80000, 3),
+(4, 'Data Analyzer Manager', 95000, 4);
+(5, 'Data Analyzer', 75000, 5);
 
 INSERT INTO employee
-(first_name, last_name, role_id, manager_id)
+(id, first_name, last_name, role_id, manager_id)
 VALUES
-('John', 'Doe', 1, NULL)
-('Jim', 'Lee', 2, 1)
+(1, 'John', 'Doe', 1, NULL),
+(2 'Jim', 'Lee', 2, 1),
+(3, 'Emily', 'Davis', 4, 3),
+(4, 'Charleston', 'Grey', 5, NULL),
