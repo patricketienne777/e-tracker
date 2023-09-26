@@ -1,7 +1,5 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
-const chalk = require('chalk');
-const consoleTable = require('console.table');
 const util = require('util');
 
 const connection = mysql.createConnection({
@@ -108,7 +106,7 @@ async function viewData(query, columnMappings) {
     try {
       const answers = await inquirer.prompt(promptQuestions);
       await queryAsync(`INSERT INTO ${tableName} SET ?`, answers);
-      console.log(chalk.bold.bgCyan('\nSUCCESS:'), successMessage);
+      console.log('\nSUCCESS:'), successMessage;
       viewData(`SELECT * FROM ${tableName}`, { ID: 'id', NAME: 'name' }); // Adjust column mappings as needed
     } catch (error) {
       console.error(error);
@@ -126,7 +124,7 @@ async function viewData(query, columnMappings) {
 //         choices: data.map(row => row[columnName]),
 //       });
 //       await queryAsync(`DELETE FROM ${tableName} WHERE ${columnName} = ?`, answer.item);
-//       console.log(chalk.bold.bgCyan('\nSUCCESS:'), successMessage);
+//       console.log('\nSUCCESS:'), successMessage;
 //       viewData(`SELECT * FROM ${tableName}`, { ID: 'id', NAME: 'name' }); // Adjust column mappings as needed
 //     } catch (error) {
 //       console.error(error);
